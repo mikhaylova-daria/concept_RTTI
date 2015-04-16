@@ -1,11 +1,13 @@
-﻿Build started 16.04.2015 12:56:23.
+﻿Build started 16.04.2015 14:05:29.
      1>Project "C:\Users\Admin\Documents\Visual Studio 2013\Projects\RTTI\RTTI\RTTI.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\VS\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>main.cpp(109): warning C4101: 'b' : unreferenced local variable
-     1>main.cpp(57): warning C4018: '<' : signed/unsigned mismatch
-                 main.cpp(115) : see reference to function template instantiation 'targetClass *casting<C,A>(sourseClass *)' being compiled
+     1>main.cpp(132): warning C4101: 'b' : unreferenced local variable
+     1>main.cpp(22): warning C4018: '<' : signed/unsigned mismatch
+                 main.cpp(98) : see reference to function template instantiation 'void my_type_info::addParent<Z,A>(void)' being compiled
+     1>main.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+                 main.cpp(139) : see reference to function template instantiation 'targetClass *casting<C,A>(sourseClass *)' being compiled
                  with
                  [
                      targetClass=C
@@ -20,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.72
+Time Elapsed 00:00:03.41

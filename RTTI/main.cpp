@@ -76,6 +76,7 @@ class A {
 	RTTI_CONSTRUCT(A)
 	RTTI_CONSTRUCT_END(A)
 public:
+	int a = 1;
 	void helloA() {
 		std::cout << "I am A!" << std::endl;
 	}
@@ -86,13 +87,16 @@ class C {
 	RTTI_CONSTRUCT(C)
 	RTTI_CONSTRUCT_END(C)
 public:
+	int c = 2;
 	void helloC() {
-		std::cout << "I am C!" << std::endl;
+		std::cout << "I am C! My field c = " << this->c << std::endl;
 	}
 };
 
 class B : public A, public C {
+
 public:
+	int i = 7;
 	RTTI_CONSTRUCT(B)
 	DECLARE_PARENT(B, A);
 	DECLARE_PARENT(B, C);
@@ -105,13 +109,17 @@ int main() {
 	B* b;
 	C* c;
 	a = new B();
+	A* a1 = new A();
+	//пытаемся связать два базовых класса без объекта-наследника - 
+	//работает обычный reinterpret_cast, поле "с" отождествляется с полем "a" 
+	c = DYNAMIC_CAST(C, A, a1);
+	c->helloC();
+	std::cout << c->c;
+	//пытаемся связать два базовых класса через объект-наследник - поле "a" уходит из области видимости,
+	//поле "c" появляется и не отождествляется с полем "a"
 	c = DYNAMIC_CAST(C, A, a);
 	c->helloC();
-	a->helloA();
-	//std::cout << a->getVirtualInfo().classN << std::endl;
-	//std::cout << c->helloC() << std::endl;
-	//std::cout << a->getVirtualInfo().parent[0].classN;// << " " << a->info.parent[1].classN << std::endl;
-	//std::cout << a->getVirtualInfo().offset[0] << " " << a->getVirtualInfo().offset[1] << std::endl;
+	std::cout << c->c;
 	int n;
 	std::cin >> n;
 	return 0;

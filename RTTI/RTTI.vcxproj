@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="macros.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2EF4F6E6-00A5-4EC2-855B-EB07A57E40E4}</ProjectGuid>
     <RootNamespace>RTTI</RootNamespace>
